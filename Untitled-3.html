@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>พื้นที่เสี่ยงน้ำท่วมริมห้วยไส้ไก่</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@400;700&display=swap');
+
+    #tooltip {
+        position: absolute;
+        background-color: #03a9f4;
+        color: white;
+        padding: 5px;
+        border: 2px solid #0288d1;
+        border-radius: 3px;
+        font-size: 13px;
+        font-family: 'Prompt', sans-serif;
+        display: none;
+        white-space: nowrap;
+    }
+</style>
+</head>
+<body>
+<div style="position: relative;">
+    <img src="page RiskArea-Moo2.jpg" width="1366" height="768" usemap="#Map" alt="พื้นที่เสี่ยงน้ำท่วม บ้านฟ้าเลื่อม"/>
+    <div id="tooltip"></div>
+</div>
+<map name="Map">
+  <area shape="rect" coords="427,409,485,451" href="#" data-title="นายธาราเทพ วงศ์สมบัติ"/>
+  <area shape="rect" coords="343,477,384,524" href="#" data-title="นางวิไล ไวยกรรณ์"/>
+  <area shape="rect" coords="406,543,437,577" href="#" data-title="นางทิพย์อรุณ ทองเกตุ"/>
+  <area shape="rect" coords="521,509,564,551" href="#" data-title="นส.ลักขณา ปุคลิค"/>
+  <area shape="rect" coords="603,532,638,562" href="#" data-title="นางถวิล โพธิ์อินทะ"/>
+  <area shape="rect" coords="627,490,660,521" href="#" data-title="นางลำพูน ทองเกตุ"/>
+  <area shape="rect" coords="675,503,713,527" href="#" data-title="นายสนิท ประเสริฐกุล"/>
+  <area shape="rect" coords="726,504,756,535" href="#" data-title="นางฉวี ประเสริฐกุล"/>
+  <area shape="rect" coords="784,503,822,531" href="#" data-title="นางบังอร ไวยกรรณ์"/>
+  <area shape="rect" coords="777,553,813,589" href="#" data-title="นายสุด ประเสริฐกุล"/>
+  <area shape="rect" coords="858,516,889,540" href="#" data-title="นางจิดาภา กัญยะวงหา"/>
+  <area shape="rect" coords="903,519,930,544" href="#" data-title="นส.อภิชญา พลศิริ"/>  
+  <area shape="rect" coords="949,532,983,565" href="#" data-title="นางประนม รจนาสม"/>
+  <area shape="rect" coords="1004,533,1023,561" href="#" data-title="นายนิพนธ์ ประเสริฐกุล"/>
+  <area shape="rect" coords="1041,533,1071,555" href="#" data-title="นางสมพิศ ตรีวงษ์"/>
+  <area shape="rect" coords="1063,568,1085,594" href="#" data-title="นายวิเชียร สุระมณี"/>
+  <area shape="rect" coords="884,437,923,466" href="#" data-title="นางสุจิตต์ โภชน์บุญมี"/>
+  <area shape="rect" coords="817,439,842,463" href="#" data-title="นายสุรพล โภชน์บุญมี"/>
+  <area shape="rect" coords="749,435,785,459" href="#" data-title="นายบวร ไวยกรรณ์"/>
+  <area shape="rect" coords="682,427,722,452" href="#" data-title="นายธีระพล โพธิ์อินทะ"/>
+  <area shape="rect" coords="620,424,650,453" href="#" data-title="นางสมบูรณ์ ทองเกตุ"/>
+</map>
+<script>
+    const tooltip = document.getElementById('tooltip');
+    const areas = document.querySelectorAll('area');
+
+    areas.forEach(area => {
+        area.addEventListener('mouseover', showTooltip);
+        area.addEventListener('mouseout', hideTooltip);
+        area.addEventListener('mousemove', moveTooltip);
+    });
+
+    function showTooltip(e) {
+        tooltip.textContent = this.getAttribute('data-title');
+        tooltip.style.display = 'block';
+        moveTooltip(e);
+    }
+
+    function hideTooltip() {
+        tooltip.style.display = 'none';
+    }
+
+    function moveTooltip(e) {
+        tooltip.style.left = (e.pageX + 10) + 'px';
+        tooltip.style.top = (e.pageY + 10) + 'px';
+    }
+</script>
+</body>  
+</html>
